@@ -1,0 +1,307 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, input, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    text-decoration:none;
+    color:inherit;
+    list-style: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+/*		    -webkit-border-radius: 0 !important;
+	    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;*/
+}
+
+button:active, button:focus, button:hover {
+    border:none !important;
+    outline:none !important;
+}
+
+body { margin:0; padding:0; }
+
+#map { 
+	position:absolute; 
+	top:0; 
+	bottom:0; 
+	width:100%; 
+}
+
+.panel { 
+	box-shadow: 0 0 3px rgba(255,255,255,0.8);
+	border: none;
+}
+.panel-default { 
+	position:absolute; 
+	width:240px;
+	height: 100%;
+	overflow: scroll;
+	z-index: 100;
+	color: #aaa;
+	background-color: #333;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+.panel-default > #panel-heading { 
+	background-color: #2a2a2a;
+	border-color: #666;
+	border-radius: 0;
+	padding: 16px 15px;
+}
+#panel-heading h4 { 
+	font-family: "clarendon-urw-extra-narrow"; 
+	font-weight: 700;
+	color: white;
+	margin-bottom: 6px; 
+}
+#panel-heading h5 { 
+	font-family: "proxima-nova",sans-serif;
+	font-weight: 500;
+	font-size: .95em;
+	color: #ddd;
+}        
+
+.panel-body { 
+	padding-left: 0; 
+	padding-right: 0; 
+}
+.panel-body h5, .panel-body p { padding-left: 15px; }
+
+
+.list-group { 
+	margin-bottom: -1px;
+}
+.list-group.ungrouped {
+	padding-left: 15px; 
+}
+
+.list-group-item { 
+	background-color: #444; 
+	border-color: #666;
+	height: 36px;
+	padding: 6px 12px 6px 15px; 
+}
+.list-group-item.header {
+	padding: 6px 12px;
+}
+
+#reservoirs {
+	height: auto;
+}
+#reservoirs i {
+	top: -14px;
+}
+
+.ungrouped {
+	padding: 7px 0;
+	background-color: #444; 
+}
+.ungrouped .list-group-item {
+	border: none;
+	height: 32px;
+	padding: 5px 12px 5px 20px;
+	position: relative;
+}
+.items .list-group-item.control { 
+	background-color: #444; 
+	border-color: #444;
+	border-top-color: #333; 
+	padding: 6px 30px;
+}		
+.items .list-group-item.layer {
+	background-color: #333;
+	border-color: #444;
+	padding-left: 40px; 			
+}
+.list-group-item:hover { 
+	cursor: pointer; 
+}
+.list-group-item.layer:hover {
+	color: #999;
+}
+.list-group-item.control:hover { 
+	cursor: inherit; 
+}
+.list-group-item h5 { 
+	font-family: "clarendon-urw-extra-narrow";
+	font-weight: 400;
+	font-size: 0.95em; 
+	display: inline-block;
+	letter-spacing: .3px;
+}
+.list-group-item h6 { 
+	font-family: "proxima-nova",sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.9em; 
+	display: inline; 
+}
+.list-group-item:before {
+  	font-family: 'FontAwesome';
+	font-size: 0.6em; 
+  	float: left;
+  	position: relative;
+  	top: 6px;
+	color: #aaa;
+	margin: 0 5px 0 -15px;
+}
+.list-group-item.on:before {
+  	font-family: 'FontAwesome';
+	font-size: 0.6em; 
+  	float: left;
+  	position: relative;
+  	top: 6px;
+	color: #ddd;
+}
+.list-group-item.layer:before {
+	content: '\f1db';
+}
+.list-group-item.layer.on:before {
+	content: '\f111';	
+}
+.list-group-item.layer.satellite:before {
+	content: '\f0ac';
+	font-size: 0.7em; 
+}
+.list-group-item.layer.info:after {
+	content: '\f05a';
+  	font-family: 'FontAwesome';
+	font-size: 0.6em; 
+  	float: left;
+  	height: 36px;
+	color: #aaa;
+}
+.ungrouped .list-group-item h5 {
+	font-family: "proxima-nova",sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 0.9em;
+	display: inline-block;
+	letter-spacing: 0px; 			
+}
+
+#description {
+	background-color: #333;
+	font-family: "proxima-nova",sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 1em;
+	letter-spacing: 0.25px;
+	color: white;
+	border-top: 1px solid #666;
+	padding: 15px 20px;
+}
+	
+.panel .on { color: white; }
+.panel .glyphicon { 
+	font-size: 0.6em; 
+	color: #aaa;
+	top: 0; 
+}
+.panel .fa { 
+	font-size: 0.6em; 
+	color: #aaa;
+	position: relative;
+}        
+.panel .fa-circle { 
+	font-size: 0.6em; 
+}
+.panel .fa-info-circle { 
+	font-size: 0.9em; 
+	top: 1px;
+	color: #777;
+	float: right;
+	position: relative;
+	top: 6px;
+}       	
+.panel .on .glyphicon { color: #ddd; }
+.panel .on .fa { color: #ddd; }
+.panel .on .fa-info-circle { color: #aaa; }
+.panel .header .fa-info-circle { color: #aaa; }
+.panel .header { color: #eee;}
+.panel .header .glyphicon { color: #ddd; }
+
+.mapboxgl-popup-content h6 { font-family: "proxima-nova", sans-serif; font-weight: 700; color: #999; }
+.mapboxgl-popup-content h5 { font-family: "clarendon-urw-extra-narrow", serif; font-weight: 400; }
+
+.mapboxgl-popup-content { background-color: black; color: white; padding: 10px 10px 10px; }
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+    border-top-color: black;
+}
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+    border-top-color: black;
+}
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+    border-top-color: black;
+}
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+    border-top-color: black;
+}
+.mapboxgl-popup-tip {
+    border: 6px solid transparent;
+}
+
+
+.control { display: none; }
+.control span {
+	margin-left: 10px;
+}		
+.control.active { display: block; }
+.opacity-control { 
+	display: inline-block;
+	margin-left: 10px;
+}
+.opacity-bar {
+	height: 4px;
+	width: 100px;
+	position: absolute;
+	top: calc(50% - 2px);
+	background-color: #666;
+}
+.handle {
+	height: 8px;
+	width: 4px;
+	position: absolute;
+	top: calc(50% - 4px);
+	background-color: #ccc;
+	border-radius: 3px;	
+}
+.handle:hover { 
+	cursor: pointer; 
+	cursor: ew-resize; 
+}
+.opacity-value {
+	display: inline-block;
+	margin-left: 110px;
+}
+
+.num-text {
+	font-size: 0.8em;
+	color: white;
+	padding-bottom: 4px;
+}
+
+.items { display: none; }
+
+.tooltip { 
+	z-index: 1000; 
+}
+.tooltip-arrow {
+	border-right-color: rgba(0,0,0,.75) !important; 	
+}
+.tooltip-inner {
+	text-align: left;
+	padding: 10px 12px;
+	background-color: rgba(0,0,0,.75); 	
+}
+
