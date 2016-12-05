@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-	mapboxgl.accessToken = 'pk.eyJ1IjoianBvbWVyYW50eiIsImEiOiJjaXdjazZnaDQwNzM1Mm9wZXl4dnRtcHptIn0.8MxZjQZnzdc1gHukh_757Q';
+	mapboxgl.accessToken = 'pk.eyJ1IjoiaXdzc3R1YXJ0IiwiYSI6InNaNzMzVXMifQ.OFDL1zM5OjRUHcL_Y5htCA';
 	var map = new mapboxgl.Map({
 	    container: 'map', // container id
-	    style: 'mapbox://styles/jpomerantz/ciwcmaqhe006q2pmh7boh90xk', //stylesheet location
+	    style: 'mapbox://styles/iwsstuart/cihwgul0a00kb95lyu8x6dn1q', //stylesheet location
 	    minZoom: 10.5,
 		center: [-122.465, 37.755], // starting position
     	zoom: 11.48 // starting zoom

@@ -1,0 +1,214 @@
+
+Seep City map
+
+Here’s a bunch of information you’ll need, requests, marked priorities, questions, etc. Please talk to me after you read this, look at the repo files and decide on general answers to some of the questions listed in priority items below.
+
+Items marked with ⧆ are most important to complete first, if possible.
+WIBNI (“wouldn’t it be nice if”) means very low priority bells & whistles to be done only after all else is complete and we agree to move to the WIBNI stage.
+
+Sigh: Updated layers aren’t quite ready (a week or two perhaps, but I can accelerate if your work depends on it). I really hope it’s possible to swap out a layer of data without having to fully georeference it again if it’s almost identical to the one being replaced. I have a hunch that’s wishful. 
+
+Layers: 
+
+Today’s land contours
+	Content: Complete
+	Functionality: Good
+	Name: Good
+	Info tooltip: Needs “From 2002 aerial survey, contour lines at 5 foot intervals.”
+	Default setting: showing
+
+Streets
+	Content: Complete
+	Functionality: Good
+	Name: Good
+	Info tooltip: Needs “© OpenStreetMap” and if possible, the links that are in the lower right corner now should be in the tooltip or more directly associated with this layer.
+	Default setting: hidden
+
+Today’s natural water [Today’s natural freshwater]
+	Content: Complete
+	Functionality: Good
+	Name: Change to “Today’s natural freshwater” 
+	Info tooltip: Replace with “Today: 21st century, wet year. Natural: not relying on human maintenance. Spring alignment does not indicate flow direction since most flow into altered channels.”
+	Default setting: showing
+
+Today’s naturalistic saltwater
+	Content: Is the shape file for Crissy field marsh, etc. already in there?
+	⧆ Functionality: Needs implementation
+	Name: Needs to be inserted after “Today’s natural freshwater” 
+	Info tooltip: Needs “Intertidal wetlands constructed recently.”
+	Default setting: showing
+
+Historic water [grouping]
+	List: Move 1913 wells into this group at end 
+	Functionality: Good but WIBNI switchable from show to hidden as a group.
+	Name: Good
+	Info tooltip: Replace with “Mid-1800s conditions unless noted otherwise.”
+	Default setting: folded up (WIBNI hidden if group switchable)
+
+Fresh water [Natural freshwater]
+	Content: Need replacement layer from Joel (close to ready), made up of 2 separate shape files so marsh can be different color.  
+	Functionality: Good
+	Name: Change to “Natural freshwater” 
+	Info tooltip: Needs “From US Surveys and other earliest sources. Excludes springs.”
+	Default setting: hidden (WIBNI showing if group switchable)
+
+Described springs [Featured historic springs]
+	Content: Need replacement layer from Joel. WIBNI rotate the few we know to have flowed in a particular direction.
+	⧆ Functionality: Needs implementation
+	Name: Change to “Featured historic springs”
+	Info tooltip: Replace with “Described over 100 years ago. Source springs implied by creeks are not considered “described.” Spring alignment does not indicate flow direction since most were not recorded.”
+	Default setting: hidden
+
+Slough & salt marsh [Salt marsh & slough]
+	Content: Need replacement layer from Joel.
+	Functionality: Good
+	Name: Change to “Salt marsh & slough” 
+	Info tooltip: Needs “From earliest US Survey for that location. Marshes shown in green. Excludes vernal dune ponds and poorly delineated wetlands.”
+	Default setting: hidden (WIBNI showing if group switchable)
+
+Dune ponds (Vernal dune ponds)
+	Content: Not sure if needs replacement layers—I think so.
+	⧆ Functionality: Needs implementation
+	Name: Change to “Vernal dune ponds” 
+	Info tooltip: Replace with “Various 19th century sources. Formed by pooling after dunes saturated in extremely wet periods through spring 1862. Ponds changed size with absorption & new rains so no shoreline possible. Speckle density indicates both concentration of water and likelihood of ponding.”
+	Default setting: hidden
+
+Former reservoirs & tanks
+	Content: Complete (I think: not sure if any changes to this layer)
+	Functionality: Good
+	Name: Good
+	Info tooltip: Change to “19th century storage sites out of use today. Lighter color means remnant of structure still exists.”
+	Default setting: hidden
+
+Development [grouping] [Urban development]
+	List: Complete
+	Functionality: Good but WIBNI switchable from show to hidden as a group.
+	Name: Change to "Urban development"
+	Info tooltip: not needed
+	Default setting: folded up (WIBNI showing if group switchable)
+
+Bay & marsh fill [Filled bay & marsh]
+	Content: Complete (I think) but WIBNI include filled lakes, too.
+	Functionality: Good
+	Name: Change to "Filled bay & marsh"
+	Info tooltip: Needs “Includes fill in freshwater marshes. Excludes fill in creek ravines, dune swales & other terraforming.”
+	Default setting: showing
+
+Developed freshwater [Artificial water features]
+	Content: Complete (I think)
+	Functionality: Good
+	Name: Change to “Artificial water features"
+	Info tooltip: Needs “Artificial: requires human maintenance to exist.”
+	Default setting: showing
+
+Reservoirs, tanks & treatment plants [Reservoirs, tanks, treatment]
+	⧆ Content: The treatment plants and tanks parts of this appear to be missing. Did Ian have the files to combine with the reservoirs? Should all be identical except lighter color for Balboa Reservoir, which also has yet to be added in.
+	Functionality: Good
+	Name: Change to "Reservoirs, tanks, treatment"
+	Info tooltip: no change
+	Default setting: showing
+
+Comparisons [grouping]
+	⧆ List: Needs the five lowest items (from features springs to Sewershed boundaries) included. WIBNI the comparisons were somehow (shading?) in sub groupings, first four together, shorelines together, sheds together.
+	Functionality: Good but WIBNI switchable from show to hidden as a group.
+	Name: Good
+	Info tooltip: not needed
+	Default setting: folded up (WIBNI hidden if group switchable)
+
+Satellite overlay
+	⧆ Content: See Ian’s comments in the email I sent previously.
+	⧆ Functionality: Was good but nothing there now.
+	Name: Good
+	Info tooltip: not sure yet (source info, I suspect)
+	Default setting: hidden
+
+1852 Coast Survey [1852 US Survey]
+	Content: Complete
+	⧆ Functionality: Needs implementation. WIBNI carefully thought out layering and at what zoom level it shows up (see 1857).
+	Name: Change to “1852 US Survey"
+	Info tooltip: 
+	Default setting: hidden, 40% when clicked, if possible
+
+1857 Coast Survey [1857 US Survey]
+	Content: This shows the 1859 map, so I have to send you the correct one.
+	⧆ Functionality: Good but WIBNI more carefully thought out layering and at what zoom level it shows up (currently not intuitive because it doesn’t show up when zoomed out fully—any ideas?)
+	Name: Change to “1857 US Survey"
+	Info tooltip: 
+	Default setting: hidden, 40% when clicked
+
+1869 Coast Survey [1869 US Survey]
+	Content: Should be in the files
+	⧆ Functionality: Needs implementation. WIBNI carefully thought out layering and at what zoom level it shows up (see 1857).
+	Name: Change to “1869 US Survey"
+	Info tooltip: 
+	Default setting: hidden, 40% when clicked
+
+Featured springs (moved into Comparisons grouping) [Major springs—go visit!]
+	Content: Need info from Joel (close to ready). Did I give Ian a file? It’s possibly outdated.
+	⧆ Functionality: Needs implementation 
+	Name: Change to "Major springs—go visit!"
+	Info tooltip: Needs “Visible even in most droughts. Can be found via public access. Go explore but don’t climb fences."
+	Default setting: hidden
+
+Today’s shoreline (moved into Comparisons grouping, shaded to match Early shoreline)
+	Content: Not sure what Ian had
+	Functionality: Low priority, need to decide in conversation.
+	Name: Good
+	Info tooltip: not sure
+	Default setting: hidden
+
+Early SF shoreline (moved into Comparisons grouping)
+	Content: Not sure what Ian had
+	Functionality: Low priority, need to decide in conversation.
+	Name: Good
+	Info tooltip: not sure
+	Default setting: hidden
+
+Natural watershed ridges (moved into Comparisons grouping) [Natural watershed divides]
+	Content: Should be in files (slight possibility of one change to layer)
+	⧆ Functionality: Needs implementation, ideally in two colors as in the printed version in Sampler booklet. SuperWIBNI: Use cursor as rain cloud and watch droplets flow as they would on the landscape to nearest water feature. Much to discuss.
+	Name: Change to "Natural watershed divides"
+	Info tooltip: Needs “Ridgetop boundaries calculated from 2002 map, but essentially identical to 1869 map. They show which direction water flows into which basin and receiving body."
+	Default setting: hidden
+
+Sewershed boundaries (moved into Comparisons grouping)
+	Content: Should be in files
+	⧆ Functionality: Needs implementation. ExtremeWIBNI: Allow previous cloud/rain scheme to adapt as layer of may are switched on and off.
+	Name: Good
+	Info tooltip: Needs “Based on SF Public Utilities Commission maps. Cross basin tunnels exist interweaving all water flow (not reflected here)." 
+	Default setting: hidden
+
+1913 wells (moved into Historic water grouping)
+	Content: Should be in files
+	Functionality: Needs implementation. Simple on/off with dots or other interesting symbol.
+	Name: Good except shouldn’t be capitalized
+	Info tooltip: Needs “From SF City Engineer mapping of most existing wells. Excludes test wells.” WIBNI Link within tooltip to page of the site that has the complete well list.
+	Default setting: hidden
+
+
+Not layer specific:
+
+Base map (when access available)
+	⧆ Replace land color with something darker so streets show up better.
+	⧆ Remove shoreline “ripples” surrounding city shore.
+	⧆ Replace ocean & bay color with something similar in color to the bay show in atlas in Sampler
+	⧆ Replace Today’s water color (magenta) with something more blue. Keep light outlining to indicate that it is a modern not historic feature.
+
+Control panel
+	⧆ Switches: I don’t like the on/off ambiguity. Have a suggestion?
+	Tooltips: I like the way Ian has them set up. Do you?
+
+⧆ Assessing functionality in various browsers
+
+⧆ Framing info
+	Title: move “Water Explorations" to its own line; add “by Joel Pomerantz”
+	How & where to include credit for the interface design?
+	Where to include invitation for pubic input, map additions/changes?
+	Where to include instigations to donate/purchase? I’ll come up with phrasing after we decide where on the screen it will be. 
+	Where to locate a short descriptive sentence? Idea: have it truncated with “more…” conatining a link to full explanatory text on a different page of the site.
+
+Layering
+	Need to discuss some. Pretty good as is, except maybe the overlays.
+
+Feature colors
+	Pretty good except as noted. Do you want to make suggestions or should I decide?
