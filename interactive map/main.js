@@ -1,16 +1,27 @@
+// file description
+
 $(document).ready(function() {
 
+/* -----------------------------------------------------------------------
+	MapboxGL map object and source layers
+----------------------------------------------------------------------- */
+
+	// mapbox access token
 	mapboxgl.accessToken = 'pk.eyJ1IjoianBvbWVyYW50eiIsImEiOiJjaXdjazZnaDQwNzM1Mm9wZXl4dnRtcHptIn0.8MxZjQZnzdc1gHukh_757Q';
+	
+	// define the mapboxgl map object and initial parameters
 	var map = new mapboxgl.Map({
 	    container: 'map', // container id
-	    style: 'mapbox://styles/jpomerantz/ciwcmaqhe006q2pmh7boh90xk', //stylesheet location
+	    style: 'mapbox://styles/jpomerantz/cix9mg3gu00b52poh3tvu5fbj', //stylesheet location
 	    minZoom: 10.5,
-		center: [-122.465, 37.755], // starting position
+		center: [-122.465, 37.755], // starting latlon position
     	zoom: 11.48 // starting zoom
-	    // maxBounds: [[-122.618025, 37.660094],[-122.283068, 37.857349]]
+	    // maxBounds: [[-122.618025, 37.660094],[-122.283068, 37.857349]] // max panning extents
 	});
 
-
+	
+	// define additional data sources not included in mapbox studio style
+	// create map layers from sources
 	map.on('style.load', function() {
 		// map.addSource("1857_shore", {
 		//   "type": "geojson",
@@ -67,7 +78,7 @@ $(document).ready(function() {
 			    }
 			}
 		});
-
+		
 		map.addSource("bay-and-marsh-fill", {
 			"type": "vector",
 			"url": 'mapbox://iwsstuart.50uz2cwq'
@@ -187,34 +198,15 @@ $(document).ready(function() {
 		// 	    // }
 		// 	}
 		// }, 'iwsstuart.4p4x2agq');
-
-
-		// map.setPaintProperty('background', 'background-color', '#666', 'grayscale');
-		// map.setPaintProperty('contours_simple', 'line-color', '#999', 'grayscale');
-		// map.setPaintProperty('phys-contours-wgs', 'line-color', '#999', 'grayscale');
-		// map.setPaintProperty('sf-water-coastline-buffer6', 'fill-opacity', 0, 'grayscale');
-		// map.setPaintProperty('sf-water-coastline-buffer5', 'fill-opacity', 0, 'grayscale');
-		// map.setPaintProperty('sf-water-coastline', 'fill-color', '#888', 'grayscale');
-		// map.setPaintProperty('sf-water-coastline-outline', 'line-color', '#999', 'grayscale');
-		// map.setPaintProperty('hillshade_shadow_med', 'fill-color', '#333', 'grayscale');
-		// map.setPaintProperty('hillshade_shadow_faint', 'fill-color', '#555', 'grayscale');
-		// map.setPaintProperty('hillshade_shadow_med', 'fill-color', '#333', 'grayscale');
-		// map.setPaintProperty('hillshade_shadow_med', 'fill-color', '#333', 'grayscale');
-		// map.setPaintProperty('hillshade_highlight_med', 'fill-color', '#aaa', 'grayscale');
-		// map.setPaintProperty('hillshade_highlight_bright', 'fill-color', '#ccc', 'grayscale');
-		// map.setPaintProperty('road-rail-tracks', 'line-color', '#777', 'grayscale');
-		// map.setPaintProperty('road-rail', 'line-color', '#777', 'grayscale');
-		// map.setPaintProperty('road-motorway', 'line-color', '#777', 'grayscale');
-		// map.setPaintProperty('road-trunk', 'line-color', '#777', 'grayscale');
-		// map.setPaintProperty('road-main', 'line-color', '#777', 'grayscale');
-		// map.setPaintProperty('road-street_limited', 'line-color', '#777', 'grayscale');
-		// map.setPaintProperty('road-motorway_link', 'line-color', '#777', 'grayscale');
-		// map.setPaintProperty('road-service-driveway', 'line-color', '#777', 'grayscale');
-		// map.setPaintProperty('road-street-low-zoom', 'line-color', '#777', 'grayscale');
-		// map.setPaintProperty('road-path', 'line-color', '#777', 'grayscale');
 	});
 
 
+/* -----------------------------------------------------------------------
+	Map object interactivity and control panel functionality
+----------------------------------------------------------------------- */
+
+	// function for turning on map layers
+	// called when a control panel layer is clicked
 	function layersOn() {
 		if (layerId == "streets") {
 			map.setLayoutProperty('road-rail-tracks', 'visibility', 'visible');
@@ -265,6 +257,8 @@ $(document).ready(function() {
 		}
 	}
 
+	// function for turning off map layers
+	// called when a control panel layer is clicked
 	function layersOff() {
 		if (layerId == "streets") {
 			map.setLayoutProperty('road-rail-tracks', 'visibility', 'none');
@@ -315,73 +309,17 @@ $(document).ready(function() {
 		}
 	}
 
-	$('#highlights #original-shore').click(function() {
-		if ($(this).hasClass('on')) {
-			map.removeClass('grayscale');
-			map.setPaintProperty('sf-water-coastline-buffer6', 'fill-opacity', 1);
-			map.setPaintProperty('sf-water-coastline-buffer5', 'fill-opacity', 1);
-			map.setPaintProperty('phys-waterbodies', 'fill-outline-color', '#bcbcc5');
-			$(this).toggleClass('on');
-			$('#tidal-water span').toggleClass('fa-circle-thin');	
-		} else {
-			map.addClass('grayscale');
-			$(this).toggleClass('on');
-			$('#tidal-water span').toggleClass('fa-circle-thin');			
-		}
-	});
-
-	$('#labels').click(function() {
-		if ($(this).hasClass('on')) {
-			map.setLayoutProperty('place_label_city_large_n', 'visibility', 'none');
-			map.setLayoutProperty('place_label_neighborhood', 'visibility', 'none');
-			map.setLayoutProperty('road-label-large', 'visibility', 'none');
-			map.setLayoutProperty('road-label-med', 'visibility', 'none');
-			map.setLayoutProperty('road-label-sm', 'visibility', 'none');
-		} else {
-			map.setLayoutProperty('place_label_city_large_n', 'visibility', 'visible');
-			map.setLayoutProperty('place_label_neighborhood', 'visibility', 'visible');			
-			map.setLayoutProperty('road-label-large', 'visibility', 'visible');
-			map.setLayoutProperty('road-label-med', 'visibility', 'visible');
-			map.setLayoutProperty('road-label-sm', 'visibility', 'visible');
-		}
-	});
-
-
-	map.on('mousemove', function (e) {
-		if (map.hasClass('grayscale')) {
-		    map.featuresAt(e.point, {layer: 'phys-waterbodies', radius: 5}, function (err, features) {
-		        map.getCanvas().style.cursor = (!err && features.length) ? 'pointer' : '';
-		    });
-		}
-	});		
-
-	map.on('click', function (e) {
-		if (map.hasClass('grayscale')) {
-			map.featuresAt(e.point, {radius: 5, layer: 'phys-waterbodies'}, function (err, features) {
-		        if (err) throw err;
-		        console.log(features);
-		    	var tooltip = new mapboxgl.Popup({closeButton:false})
-			        .setLngLat(e.lngLat)
-			        .setHTML('<h6 id="tooltip">' + features[0].properties.BODY_TYPE + '</h6>'
-			        	+ '<h5>' + features[0].properties.BODY_NAME + '</h5>')
-			        .addTo(map);
-		    });
-		}
-	});
-
+	// toggle expanding lists on header click in control panel
 	$('.header').click(function() {
 		var group = $(this).parent();
 		group.children('ul').toggle();
 		group.children('.header').children('span').toggleClass('glyphicon-triangle-right');	
 		group.children('.header').children('span').toggleClass('glyphicon-triangle-bottom');	
 	});
+	
+	var groupId, layerId, controlId; // initiate variables for map layer toggling function
 
-	var groupId, layerId, controlId;
-
-	// var layerGroups = {
-	// 	"lakes-creeks-marshes": [ "natural-freshwater", "natural-freshwater-stroke", "marsh-now" ]
-	// };
-
+	// toggle map layers on layer click in control panel
 	$('.list-group .list-group-item.layer').click(function() {
 		layerId = $(this).attr('id');
 		groupId = $(this).attr('id');
@@ -397,8 +335,7 @@ $(document).ready(function() {
 				if (layerId == "mapbox-satellite") {
 					map.setLayoutProperty('satellite-lowzoom', 'visibility', 'none');				
 				}
-			}
-		
+			}		
 		} else {
 			$(this).toggleClass('on');
 			layersOn();	
@@ -417,10 +354,12 @@ $(document).ready(function() {
 		}		
 	});
 
+	// initiate variables for opacity slider
 	var handle, start = false, startLeft;
 	var sliderWidth = $('.opacity-bar').width(), handleWidth = $('.handle').width();
 	var opacityText;
 
+	// reset layerId and toggle 'current' class on opacity control mouseover
 	$('.items li.control').mouseover(function() {
 		layerId = $(this).attr('id').replace('-opacity', '');
 		$(this).toggleClass('current');
@@ -429,35 +368,82 @@ $(document).ready(function() {
 		$(this).toggleClass('current');
 	});
 
+	// change handle position, update layer opacity, and set opacity text value when slider handle is moved
 	document.onmousemove = function(e) {
 		if (!start) return;
-	    // Adjust control.
+	    // Adjust handle position
 	    handle.style.left = Math.max(0, Math.min(sliderWidth - 4, startLeft + parseInt(e.clientX, 10) - start)) + 'px';
-	    // Adjust opacity.
+	    // Adjust map layer opacity
 		map.setPaintProperty(layerId, 'raster-opacity', handle.offsetLeft / (sliderWidth - 4));
 		var opacityVal = parseFloat(map.getPaintProperty(layerId, 'raster-opacity')).toFixed(2);
+	    // Adjust opacity value text
 		if (opacityVal == 1 || opacityVal == 0) { 
 			opacityVal = parseInt(opacityVal); 
 		}
 		$(opacityText).html(opacityVal);
 	};
 
+	// get starting parameters on opacity handle mousedown
 	$('.handle').mousedown(function(e) {
 		handle = this;
 		opacityText = $('.current p');
-		// console.log($(this).parents('.list-group-item'));
 		start = parseInt(e.clientX, 10);
 		startLeft = this.offsetLeft;
 		// layerId = $(this).parents('.list-group-item').attr('id').replace('-opacity','');	
 	});
 
+	// clear 'start' variable for reset on next handle click
 	document.onmouseup = function(e) {
 	    start = null;
 	};
 
+	// toggle info tooltips in control panel
 	$('[data-toggle="tooltip"]').tooltip({ placement: 'right', container: 'body' });
 	$('[data-toggle="tooltip"]').hover(function() {
 		$('.tooltip').css('margin-left','15px');
 	});
+
+/*
+	// map label toggle function
+	$('#labels').click(function() {
+		if ($(this).hasClass('on')) {
+			map.setLayoutProperty('place_label_city_large_n', 'visibility', 'none');
+			map.setLayoutProperty('place_label_neighborhood', 'visibility', 'none');
+			map.setLayoutProperty('road-label-large', 'visibility', 'none');
+			map.setLayoutProperty('road-label-med', 'visibility', 'none');
+			map.setLayoutProperty('road-label-sm', 'visibility', 'none');
+		} else {
+			map.setLayoutProperty('place_label_city_large_n', 'visibility', 'visible');
+			map.setLayoutProperty('place_label_neighborhood', 'visibility', 'visible');			
+			map.setLayoutProperty('road-label-large', 'visibility', 'visible');
+			map.setLayoutProperty('road-label-med', 'visibility', 'visible');
+			map.setLayoutProperty('road-label-sm', 'visibility', 'visible');
+		}
+	});
+
+	// change pointer on map feature hover to indicate tooltip
+	map.on('mousemove', function (e) {
+		if (map.hasClass('grayscale')) {
+		    map.featuresAt(e.point, {layer: 'phys-waterbodies', radius: 5}, function (err, features) {
+		        map.getCanvas().style.cursor = (!err && features.length) ? 'pointer' : '';
+		    });
+		}
+	});		
+
+	// show tooltips on click
+	map.on('click', function (e) {
+		if (map.hasClass('grayscale')) {
+			map.featuresAt(e.point, {radius: 5, layer: 'phys-waterbodies'}, function (err, features) {
+		        if (err) throw err;
+		        console.log(features);
+		    	var tooltip = new mapboxgl.Popup({closeButton:false})
+			        .setLngLat(e.lngLat)
+			        .setHTML('<h6 id="tooltip">' + features[0].properties.BODY_TYPE + '</h6>'
+			        	+ '<h5>' + features[0].properties.BODY_NAME + '</h5>')
+			        .addTo(map);
+		    });
+		}
+	});
+*/
 
 });
