@@ -2,12 +2,12 @@
 The steps below describe how to take a raster layer from photoshop, turn it into accurately georeferenced vector geometry, and add it to the Seep City Mapbox style.
 
 **In Illustrator:**
+
 _Joel: These are the steps you sent me back in June for how you created the Illustrator files. Let me know if you are doing things any differently now._
 
 ![](https://github.com/JoelPomerantz/seepcity/blob/master/interactive%20map/Joel_illustrator_steps.png)
 
-The way that Joel is currently doing the conversion from raster to vector results in duplicate vector paths that need to be removed for successful export to DXF.
-	* _Can we figure out how to convert to vector paths without duplicate paths?_
+The way that Joel is currently doing the conversion from raster to vector results in duplicate vector paths that need to be removed for successful export to DXF. _Can we figure out how to convert to vector paths without duplicate paths?_
 	
 In order to import the files into QGIS, they need to be saved as DXF files (AutoCAD interchange files).
 	
@@ -24,7 +24,7 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 
 **In QGIS:**
 * Open  `vector_transform.qgs`  from Data > Georeferencing
-	* _Could set up a QGIS project with a few settings ready to go for georeferencing, otherwise just create a new project_
+	* _This QGIS project can have a few settings ready to go for georeferencing, otherwise just creating a new project is fine_
 * Make sure the GRASS geoprocessing plugin is installed
 	* Go to Plugins > Manage and Install Plugins to view installed plugins and add new ones
 * To show the processing toolbox, go to Processing > Toolbox
@@ -37,7 +37,7 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 	* In the Processing Toolbox, under GRASS commands > Vector, select v.transform.pointsfile
 	* Choose the DXF layer you just imported as the input layer
 	* For the points file, browse to Data > Georeferencing > `vector_transform.points`
-	* Under Transformed, click the browse button and choose Save to file
+	* Under Transformed, click the browse button and choose 'Save to file'
 	* Browse to the appropriate folder (transformed shapefiles are currently in Data > Shapefiles > Transformed Raster Layers) and give the layer an appropriate name
 	* Keep ‘Open output file after running algorithm’ checked
 	* Click Run to execute the algorithm. If all goes well, the transformed shapefile should show up in the layers panel.
