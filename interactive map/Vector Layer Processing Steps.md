@@ -4,7 +4,7 @@ The steps below describe how to take a raster layer from photoshop, turn it into
 **In Illustrator:**
 _Joel: These are the steps you sent me back in June for how you created the Illustrator files. Let me know if you are doing things any differently now._
 
-![](Vector%20Layer%20Processing%20Steps/Screen%20Shot%202017-01-19%20at%203.33.02%20PM.png)
+![](https://github.com/JoelPomerantz/seepcity/blob/master/interactive%20map/Joel_illustrator_steps.png)
 
 The way that Joel is currently doing the conversion from raster to vector results in duplicate vector paths that need to be removed for successful export to DXF.
 	* _Can we figure out how to convert to vector paths without duplicate paths?_
