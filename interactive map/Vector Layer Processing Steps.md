@@ -1,14 +1,79 @@
 # Vector Layer Processing Steps
 The steps below describe how to take a raster layer from photoshop, turn it into accurately georeferenced vector geometry, and add it to the Seep City Mapbox style.
 
-**In Illustrator:**
+####Summary:
+[Photoshop](#in-photoshop)  
+Export raster map layer(s) in a format that can be converted to vector paths in Illustrator.
 
-_Joel: These are the steps you sent me back in June for how you created the Illustrator files. Let me know if you are doing things any differently now._
+Illustrator  
+Convert raster layer(s) to vector paths, then export the vector data in a format that is readable by QGIS.
 
-![](https://github.com/JoelPomerantz/seepcity/blob/master/interactive%20map/Joel_illustrator_steps.png)
+QGIS  
+Transform/georeference the geometry so that its size and position are accurate the in coordinate system, and save the data in a format readable by Mapbox.
 
-The way that Joel is currently doing the conversion from raster to vector results in duplicate vector paths that need to be removed for successful export to DXF. _Can we figure out how to convert to vector paths without duplicate paths?_
+Mapbox  
+Import the data and add it as a layer to the Seep City map style.
+
+###In Photoshop:
+
+Note: These steps were developed using Photoshop CS4
+
+To prep Photoshop raster layers for import into Illustrator, follow these steps:
+
+1. Duplicate full Photoshop map file
+2. Open duplicate
+3. Image > Mode > Greyscale
+4. Make visible only the layers to vectorize
+5. For all visible layers with effects, drag the effects to the layer trash.
+6. Delete each folder group (group only, not folder content)–Not sure if this was the reason for earlier trouble but do it to be safe, because it worked!
+7. Use Single-row Marquee Tool to select top row of pixels in the design
+8. Add a one-pixel stripe across the top of each layer, as follows:
+    * Click on the layer to go there
+    * Shift-F5 (or Edit>Fill…) Black; Opacity 100%
+    * Go to next visible layer and repeat
+9. Go through each layer again making the pixels solid black as follows:
+    * Click on the layer to go there
+    * Click on the icon of the layer
+    * Change opacity to 100% (if not already)
+    * Command-click on the icon (selects all pixels not empty in the layer)
+    * Shift-F5 (or Edit>Fill…) Black; Opacity 100%
+10. File > Scripts > Export layers to files…
+    * File type PSD
+    * Visible layers only (checked)
+    * Transparency (checked)
+    * Trim layers (checked)
+
+This leaves each layer as its own file.
+
+Final layer-by-layer prep in Photoshop CS4 for Illustrator CS4
+
+1. Open each layer by itself as an image in Photoshop
+2. Image>Mode>Bitmap… 680 pixels per inch and 50% threshold
+3. Save as PNG
+
+###In Illustrator:
+
+_The way that Joel is currently doing the conversion from raster to vector results in duplicate vector paths that need to be removed for successful export to DXF. Can we figure out how to convert to vector paths without duplicate paths?_
 	
+From bitmap to .ai vectors
+
+1. Open layer PNG in Illustrator
+2. Object>Live Trace>Tracing Options… click OK to bypass large image alert
+3. In dialog, choose Preset called “Tracing Preset 1” which is
+        Mode: Black & White
+        Path Fitting: 0.9 px
+        Minimum area: 10 px
+        Corner angle: 180
+        Vector: Tracing result
+        Fills checked, all others unchecked
+4. Click “Trace”
+5. Click “Expand” in the toolbar
+6. Object>Path>Add Anchor Points
+7. Object>Path>Add Anchor Points (if it allows)
+8. Object>Path>Add Anchor Points (if it allows)
+9. Object>Path>Simplify with straight lines clicked, 0 angle
+10. Save As… .ai CS4 file
+
 In order to import the files into QGIS, they need to be saved as DXF files (AutoCAD interchange files).
 	
 * Open the layer .ai file
@@ -22,7 +87,8 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 	* The default export settings should be fine
 	* Actions can be used to batch export multiple files
 
-**In QGIS:**
+###In QGIS:
+
 * Open  `vector_transform.qgs`  from Data > Georeferencing
 	* _This QGIS project can have a few settings ready to go for georeferencing, otherwise just creating a new project is fine_
 * Make sure the GRASS geoprocessing plugin is installed
@@ -50,7 +116,8 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 	* _Might be able to batch process shape files without actually adding them as layers_
 	* _The whole QGIS process could also be automated with a python script down the road if it ever seems worth it_
 
-**In Mapbox Studio:**
+###In Mapbox Studio:
+
 * Log into [Mapbox Studio](https://www.mapbox.com/studio/) using the _jpomerantz_ account
 * In the left menu bar, select Tilesets, then click 'New tileset'
 * Choose the georeferenced shapefile you just created as the file to upload
