@@ -1,22 +1,25 @@
 # Vector Layer Processing Steps
+
 The steps below describe how to take a raster layer from photoshop, turn it into accurately georeferenced vector geometry, and add it to the Seep City Mapbox style.
 
-####Summary:
+###Summary:
+
 [Photoshop](#in-photoshop)  
 Export raster map layer(s) in a format that can be converted to vector paths in Illustrator.
 
-Illustrator  
+[Illustrator](#in-illustrator)  
 Convert raster layer(s) to vector paths, then export the vector data in a format that is readable by QGIS.
 
-QGIS  
+[QGIS](#in-qgis)  
 Transform/georeference the geometry so that its size and position are accurate the in coordinate system, and save the data in a format readable by Mapbox.
 
-Mapbox  
+[Mapbox](#in-mapbox-studio)  
 Import the data and add it as a layer to the Seep City map style.
+  
 
 ###In Photoshop:
 
-Note: These steps were developed using Photoshop CS4
+_Note: These steps were developed using Photoshop CS4_
 
 To prep Photoshop raster layers for import into Illustrator, follow these steps:
 
@@ -45,11 +48,13 @@ To prep Photoshop raster layers for import into Illustrator, follow these steps:
 
 This leaves each layer as its own file.
 
-Final layer-by-layer prep in Photoshop CS4 for Illustrator CS4
+Final layer-by-layer prep in Photoshop CS4 for Illustrator CS4:
 
 1. Open each layer by itself as an image in Photoshop
 2. Image>Mode>Bitmap… 680 pixels per inch and 50% threshold
 3. Save as PNG
+
+_The above steps can be automated using Actions_
 
 ###In Illustrator:
 
