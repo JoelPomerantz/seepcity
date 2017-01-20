@@ -81,30 +81,30 @@ From bitmap to .ai vectors
 
 In order to import the files into QGIS, they need to be saved as DXF files (AutoCAD interchange files).
 	
-* Open the layer .ai file
-* Go to Object > Artboards > Fit to Artwork Bounds
+1. Open the layer .ai file
+2. Go to Object > Artboards > Fit to Artwork Bounds
 	* _Actions can can be used to automate this step for multiple files_
-* Go to Select > All, or click once anywhere on the artwork to select all paths (all paths should be grouped initially)
-* Go to Object > Ungroup to remove the top-level path grouping
-* Click once on the artwork to select the top layer of paths, which includes duplicate shapes and a path extracted from the extent of the original map layer
+3. Go to Select > All, or click once anywhere on the artwork to select all paths (all paths should be grouped initially)
+4. Go to Object > Ungroup to remove the top-level path grouping
+5. Click once on the artwork to select the top layer of paths, which includes duplicate shapes and a path extracted from the extent of the original map layer
 	* Press Delete to remove these unnecessary paths
-* Go to File > Export and select AutoCAD Interchange File (dxf) as the export format
+6. Go to File > Export and select AutoCAD Interchange File (dxf) as the export format
 	* The default export settings should be fine
 	* Actions can be used to batch export multiple files
 
 ###In QGIS:
 
-* Open  `vector_transform.qgs`  from Data > Georeferencing
+1. Open  `vector_transform.qgs`  from Data > Georeferencing
 	* _This QGIS project can have a few settings ready to go for georeferencing, otherwise just creating a new project is fine_
-* Make sure the GRASS geoprocessing plugin is installed
+2. Make sure the GRASS geoprocessing plugin is installed
 	* Go to Plugins > Manage and Install Plugins to view installed plugins and add new ones
-* To show the processing toolbox, go to Processing > Toolbox
+3. To show the processing toolbox, go to Processing > Toolbox
 	* With Advanced Interface selected at the bottom of the toolbox, the GRASS geoprocessing tools should be visible
-* Go to Layer > Add Layer > Add Vector Layer and choose the DXF file(s)
-* When prompted to select CRS for the layer source, choose EPSG:3857 (WGS 84 / Pseudo Mercator)
-* When prompted to select which geometry types to import, choose the Polygon layer (do not select LineString layer)
-* When prompted to select a CRS for the imported layer, choose EPSG:3857 (WGS 84 / Pseudo Mercator)
-* If georeferencing one layer:
+4. Go to Layer > Add Layer > Add Vector Layer and choose the DXF file(s)
+5. When prompted to select CRS for the layer source, choose EPSG:3857 (WGS 84 / Pseudo Mercator)
+6. When prompted to select which geometry types to import, choose the Polygon layer (do not select LineString layer)
+7. When prompted to select a CRS for the imported layer, choose EPSG:3857 (WGS 84 / Pseudo Mercator)
+8. If georeferencing one layer:
 	* In the Processing Toolbox, under GRASS commands > Vector, select v.transform.pointsfile
 	* Choose the DXF layer you just imported as the input layer
 	* For the points file, browse to Data > Georeferencing > `vector_transform.points`
@@ -115,7 +115,7 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 	* Right click the layer and select ‘Zoom to Layer’
 	* The layer should now be positioned correctly relative to the basemap
 	* Remove any geometry that was included only for georeferencing purposes
-* If georeferencing a batch of layers:
+9. If georeferencing a batch of layers:
 	* _QGIS has a batch processing feature, which will be outlined here if necessary_
 	* 	_Way to auto name layers?_
 	* _Might be able to batch process shape files without actually adding them as layers_
@@ -123,9 +123,9 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 
 ###In Mapbox Studio:
 
-* Log into [Mapbox Studio](https://www.mapbox.com/studio/) using the _jpomerantz_ account
-* In the left menu bar, select Tilesets, then click 'New tileset'
-* Choose the georeferenced shapefile you just created as the file to upload
-* When the upload process finishes, the tileset will be ready to add to the Seep City map style as a new layer
+1. Log into [Mapbox Studio](https://www.mapbox.com/studio/) using the _jpomerantz_ account
+2. In the left menu bar, select Tilesets, then click 'New tileset'
+3. Choose the georeferenced shapefile you just created as the file to upload
+4. When the upload process finishes, the tileset will be ready to add to the Seep City map style as a new layer
 
 	
