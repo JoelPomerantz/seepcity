@@ -51,5 +51,9 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 	* _The whole QGIS process could also be automated with a python script down the road if it ever seems worth it_
 
 **In Mapbox Studio:**
+* Log into [Mapbox Studio](https://www.mapbox.com/studio/) using the _jpomerantz_ account
+* In the left menu bar, select Tilesets, then click 'New tileset'
+* Choose the georeferenced shapefile you just created as the file to upload
+* When the upload process finishes, the tileset will be ready to add to the Seep City map style as a new layer
 
 	
