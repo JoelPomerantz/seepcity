@@ -28,28 +28,28 @@ To batch prepare a set of raster layers in a Photoshop file for import into Illu
 3. Make visible only the layers you want to vectorize
 4. For all visible layers with Effects, drag the effects to the layer trash
 5. Ungroup layer groups (delete the group folder only, not the folder content)
-    * Not sure if this was the reason for earlier trouble but do it to be safe, because it worked!
+	* Not sure if this was the reason for earlier trouble but do it to be safe, because it worked!
 
 	_Note: Steps 6 and 7 are unnecessary. The current pointsfile, `vector_transform.points`, used in transformation seems to produce acceptable results, although there may be a way to create a photoshop layer that can be used for better groundtruthing of reference points._
 
 6. Use Single-row Marquee Tool to select top row of pixels on the canvas
 7. Add a one-pixel stripe across the top of each layer, as follows:
-    * Click on the layer to go there
-    * Shift-F5 (or Edit > Fill...) Black; Opacity 100%
-    * Go to next visible layer and repeat
+	* Click on the layer to go there
+    	* Shift-F5 (or Edit > Fill...) Black; Opacity 100%
+    	* Go to next visible layer and repeat
 8. Go through each layer again making all pixels solid black as follows:
-    * Click on the layer to go there
-    * Click on the icon of the layer
-    * Change opacity to 100% (if not already)
-    * Command-click on the icon (selects all non-empty pixels in the layer)
-    * Shift-F5 (or Edit > Fill...) Black; Opacity 100%
+    	* Click on the layer to go there
+    	* Click on the icon of the layer
+    	* Change opacity to 100% (if not already)
+    	* Command-click on the icon (selects all non-empty pixels in the layer)
+    	* Shift-F5 (or Edit > Fill...) Black; Opacity 100%
 10. File > Scripts > Export Layers to Files...
-    * Select PSD as the file type
-    * Visible layers only (checked)
-    * Transparency (checked)
-    * _Trim layers (checked)_
+    	* Select PSD as the file type
+    	* Visible layers only (checked)
+    	* Transparency (checked)
+    	* _Trim layers (checked)_
     
-    This exports each layer to its own file.
+    	This exports each layer to its own file.
 
 Final layer-by-layer prep in Photoshop CS4 for Illustrator CS4:
 
@@ -67,7 +67,7 @@ To convert map layers from bitmap to .ai vector files:
 
 1. Open the map layer PNG in Illustrator
 2. Go to Object > Live Trace > Tracing Options... click OK to bypass large image alert
-3. In dialog, choose Preset called 'Tracing Preset 1' which is
+3. In dialog, choose Preset called 'Tracing Preset 1' which has these settings:
         Mode: Black & White
         Path Fitting: 0.9 px
         Minimum area: 10 px
