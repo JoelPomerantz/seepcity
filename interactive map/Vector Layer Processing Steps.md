@@ -1,6 +1,6 @@
 # Vector Layer Processing Steps
 
-The steps below describe how to take a raster layer from photoshop, turn it into accurately georeferenced vector geometry, and add it to the Seep City Mapbox style.
+The steps below describe how to take a raster map layer from Photoshop, convert that raster image to vector paths in Illustrator, turn those paths into accurately georeferenced vector geometry, and add the geometry to the Seep City Mapbox style.
 
 ###Summary:
 
@@ -11,10 +11,10 @@ Export raster map layer(s) in a format that can be converted to vector paths in 
 Convert raster layer(s) to vector paths, then export the vector data in a format that is readable by QGIS.
 
 [QGIS](#in-qgis)  
-Transform/georeference the geometry so that its size and position are accurate the in coordinate system, and save the data in a format readable by Mapbox.
+Transform/georeference the geometry so that its size and position are accurate the in the chosen coordinate system, and save the data in a format readable by Mapbox.
 
 [Mapbox](#in-mapbox-studio)  
-Import the data and add it as a layer to the Seep City map style.
+Import the data and add it as a layer to the Seep City map style in Mapbox Studio.
   
 
 ###In Photoshop:
@@ -51,7 +51,7 @@ This leaves each layer as its own file.
 Final layer-by-layer prep in Photoshop CS4 for Illustrator CS4:
 
 1. Open each layer by itself as an image in Photoshop
-2. Image>Mode>Bitmap… 680 pixels per inch and 50% threshold
+2. Image > Mode > Bitmap… 680 pixels per inch and 50% threshold
 3. Save as PNG
 
 _The above steps can be automated using Actions_
@@ -73,10 +73,10 @@ From bitmap to .ai vectors
         Fills checked, all others unchecked
 4. Click “Trace”
 5. Click “Expand” in the toolbar
-6. Object>Path>Add Anchor Points
-7. Object>Path>Add Anchor Points (if it allows)
-8. Object>Path>Add Anchor Points (if it allows)
-9. Object>Path>Simplify with straight lines clicked, 0 angle
+6. Object > Path > Add Anchor Points
+7. Object > Path > Add Anchor Points (if it allows)
+8. Object > Path > Add Anchor Points (if it allows)
+9. Object > Path > Simplify with straight lines clicked, 0 angle
 10. Save As… .ai CS4 file
 
 In order to import the files into QGIS, they need to be saved as DXF files (AutoCAD interchange files).
@@ -100,9 +100,9 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 	* Go to Plugins > Manage and Install Plugins to view installed plugins and add new ones
 3. To show the processing toolbox, go to Processing > Toolbox
 	* With Advanced Interface selected at the bottom of the toolbox, the GRASS geoprocessing tools should be visible
-
+		
 		![Processing Toolbox](./processing_toolbox.png)
-
+		
 4. Go to Layer > Add Layer > Add Vector Layer and choose the DXF file(s)
 5. When prompted to select CRS for the layer source, choose EPSG:3857 (WGS 84 / Pseudo Mercator)
 6. When prompted to select which geometry types to import, choose the Polygon layer (do not select LineString layer)
