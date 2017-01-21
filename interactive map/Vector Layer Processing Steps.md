@@ -44,10 +44,10 @@ To batch prepare a set of raster layers in a Photoshop file for import into Illu
     	* Command-click on the icon (selects all non-empty pixels in the layer)
     	* Shift-F5 (or Edit > Fill...) Black; Opacity 100%
 10. File > Scripts > Export Layers to Files...
-    	* Select PSD as the file type
-    	* Visible layers only (checked)
-    	* Transparency (checked)
-    	* _Trim layers (checked)_
+	* Select PSD as the file type
+	* Visible layers only (checked)
+	* Transparency (checked)
+	* _Trim layers (checked)_
     
     	This exports each layer to its own file.
 
