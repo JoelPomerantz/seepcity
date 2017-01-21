@@ -4,16 +4,16 @@ The steps below describe how to take a raster map layer from Photoshop, convert 
 
 ###Summary:
 
-[Photoshop](#in-photoshop)  
+[1. Photoshop](#in-photoshop)  
 Export raster map layer(s) in a format that can be converted to vector paths in Illustrator.
 
-[Illustrator](#in-illustrator)  
+[2. Illustrator](#in-illustrator)  
 Convert raster layer(s) to vector paths, then export the vector data in a format that is readable by QGIS.
 
-[QGIS](#in-qgis)  
+[3. QGIS](#in-qgis)  
 Transform/georeference the geometry so that its size and position are accurate the in the chosen coordinate system, and save the data in a format readable by Mapbox.
 
-[Mapbox](#in-mapbox-studio)  
+[4. Mapbox](#in-mapbox-studio)  
 Import the data and add it as a layer to the Seep City map style in Mapbox Studio.
   
 
@@ -43,7 +43,7 @@ To batch prepare a set of raster layers in a Photoshop file for import into Illu
     * Change opacity to 100% (if not already)
     * Command-click on the icon (selects all non-empty pixels in the layer)
     * Shift-F5 (or Edit > Fill...) Black; Opacity 100%
-10. File > Scripts > Export layers to files
+10. File > Scripts > Export Layers to Files...
     * Select PSD as the file type
     * Visible layers only (checked)
     * Transparency (checked)
