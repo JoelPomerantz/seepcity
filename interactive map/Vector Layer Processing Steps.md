@@ -48,8 +48,8 @@ To batch prepare a set of raster layers in a Photoshop file for import into Illu
 	* Visible layers only (checked)
 	* Transparency (checked)
 	* _Trim layers (checked)_
-    
-    	This exports each layer to its own file.
+	
+	This exports each layer to its own file.
 
 Final layer-by-layer prep in Photoshop CS4 for Illustrator CS4:
 
