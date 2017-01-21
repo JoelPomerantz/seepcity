@@ -35,8 +35,8 @@ To batch prepare a set of raster layers in a Photoshop file for import into Illu
 6. Use Single-row Marquee Tool to select top row of pixels on the canvas
 7. Add a one-pixel stripe across the top of each layer, as follows:
 	* Click on the layer to go there
-    	* Shift-F5 (or Edit > Fill...) Black; Opacity 100%
-    	* Go to next visible layer and repeat
+	* Shift-F5 (or Edit > Fill...) Black; Opacity 100%
+	* Go to next visible layer and repeat
 8. Go through each layer again making all pixels solid black as follows:
     	* Click on the layer to go there
     	* Click on the icon of the layer
