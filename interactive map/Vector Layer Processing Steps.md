@@ -80,7 +80,7 @@ To convert map layers from bitmap to .ai vector files:
 7. Object > Path > Add Anchor Points (if it allows)
 8. Object > Path > Add Anchor Points (if it allows)
 9. Object > Path > Simplify with straight lines clicked, 0 angle
-10. Save As… .ai CS4 file
+10. Save As... .ai CS4 file
 
 In order to import the files into QGIS, they need to be saved as DXF files (AutoCAD interchange files).
 	
@@ -124,7 +124,7 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 	* Right click the layer and select ‘Zoom to Layer’
 	* The layer should now be positioned correctly relative to the basemap
 	* _Remove any geometry that was included only for georeferencing purposes_
-9. _If georeferencing a batch of layers:_
+_9. If georeferencing a batch of layers:_
 	* _QGIS has a batch processing feature, which will be outlined here if necessary_
 	* _Way to auto name layers?_
 	* _Might be able to batch process shape files without actually adding them as layers_
