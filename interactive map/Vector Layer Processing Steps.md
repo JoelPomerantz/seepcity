@@ -30,19 +30,19 @@ To batch prepare a set of raster layers in a Photoshop file for import into Illu
 5. Ungroup layer groups (delete the group folder only, not the folder content)
     * Not sure if this was the reason for earlier trouble but do it to be safe, because it worked!
 
-	_Note: Steps 6 and 7 are unnecessary. Current pointsfile used in transformation seems to produce acceptable results, although 		there may be a way to create a photoshop layer that can be used for better groundtruthing of reference points._
+	_Note: Steps 6 and 7 are unnecessary. The current pointsfile, `vector_transform.points`, used in transformation seems to produce acceptable results, although there may be a way to create a photoshop layer that can be used for better groundtruthing of reference points._
 
 6. Use Single-row Marquee Tool to select top row of pixels on the canvas
 7. Add a one-pixel stripe across the top of each layer, as follows:
     * Click on the layer to go there
-    * Shift-F5 (or Edit > Fill) Black; Opacity 100%
+    * Shift-F5 (or Edit > Fill...) Black; Opacity 100%
     * Go to next visible layer and repeat
 8. Go through each layer again making all pixels solid black as follows:
     * Click on the layer to go there
     * Click on the icon of the layer
     * Change opacity to 100% (if not already)
     * Command-click on the icon (selects all non-empty pixels in the layer)
-    * Shift-F5 (or Edit > Fill) Black; Opacity 100%
+    * Shift-F5 (or Edit > Fill...) Black; Opacity 100%
 10. File > Scripts > Export layers to files
     * Select PSD as the file type
     * Visible layers only (checked)
@@ -65,17 +65,17 @@ _The way that Joel is currently doing the conversion from raster to vector resul
 	
 To convert map layers from bitmap to .ai vector files:
 
-1. Open layer PNG in Illustrator
-2. Object>Live Trace>Tracing Options… click OK to bypass large image alert
-3. In dialog, choose Preset called “Tracing Preset 1” which is
+1. Open the map layer PNG in Illustrator
+2. Go to Object > Live Trace > Tracing Options... click OK to bypass large image alert
+3. In dialog, choose Preset called 'Tracing Preset 1' which is
         Mode: Black & White
         Path Fitting: 0.9 px
         Minimum area: 10 px
         Corner angle: 180
         Vector: Tracing result
         Fills checked, all others unchecked
-4. Click “Trace”
-5. Click “Expand” in the toolbar
+4. Click 'Trace'
+5. Click 'Expand' in the toolbar
 6. Object > Path > Add Anchor Points
 7. Object > Path > Add Anchor Points (if it allows)
 8. Object > Path > Add Anchor Points (if it allows)
@@ -91,9 +91,9 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 4. Go to Object > Ungroup to remove the top-level path grouping
 5. Click once on the artwork to select the top layer of paths, which includes duplicate shapes and a path extracted from the extent of the original map layer
 	* Press Delete to remove these unnecessary paths
-6. Go to File > Export and select AutoCAD Interchange File (dxf) as the export format
+6. Go to File > Export and select 'AutoCAD Interchange File (dxf)' as the export format
 	* The default export settings should be fine
-	* Actions can be used to batch export multiple files
+	* _Actions can be used to batch export multiple files_
 
 ###3. In QGIS:
 
@@ -111,7 +111,7 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 6. When prompted to select which geometry types to import, choose the Polygon layer (do not select LineString layer)
 7. When prompted to select a CRS for the imported layer, choose EPSG:3857 (WGS 84 / Pseudo Mercator)
 8. If georeferencing one layer:
-	* In the Processing Toolbox, under GRASS commands > Vector, select v.transform.pointsfile to bring up the tranform dialog box
+	* In the Processing Toolbox, under GRASS commands > Vector, select 'v.transform.pointsfile' to bring up the tranformation dialog box
 		
 		![vTransform Dialog Box](./vtransform_dialog.png)
 
@@ -124,9 +124,9 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 	* Right click the layer and select ‘Zoom to Layer’
 	* The layer should now be positioned correctly relative to the basemap
 	* _Remove any geometry that was included only for georeferencing purposes_
-9. If georeferencing a batch of layers:
+9. _If georeferencing a batch of layers:_
 	* _QGIS has a batch processing feature, which will be outlined here if necessary_
-	* 	_Way to auto name layers?_
+	* _Way to auto name layers?_
 	* _Might be able to batch process shape files without actually adding them as layers_
 	* _The whole QGIS process could also be automated with a python script down the road if it ever seems worth it_
 
