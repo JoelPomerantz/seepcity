@@ -99,16 +99,19 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 2. Make sure the GRASS geoprocessing plugin is installed
 	* Go to Plugins > Manage and Install Plugins to view installed plugins and add new ones
 3. To show the processing toolbox, go to Processing > Toolbox
-	* With Advanced Interface selected at the bottom of the toolbox, the GRASS geoprocessing tools should be visible  
+	* With Advanced Interface selected at the bottom of the toolbox, the GRASS geoprocessing tools should be visible
 
-	![Processing Toolbox](./processing_toolbox.png)
+		![Processing Toolbox](./processing_toolbox.png)
 
 4. Go to Layer > Add Layer > Add Vector Layer and choose the DXF file(s)
 5. When prompted to select CRS for the layer source, choose EPSG:3857 (WGS 84 / Pseudo Mercator)
 6. When prompted to select which geometry types to import, choose the Polygon layer (do not select LineString layer)
 7. When prompted to select a CRS for the imported layer, choose EPSG:3857 (WGS 84 / Pseudo Mercator)
 8. If georeferencing one layer:
-	* In the Processing Toolbox, under GRASS commands > Vector, select v.transform.pointsfile
+	* In the Processing Toolbox, under GRASS commands > Vector, select v.transform.pointsfile to bring up the tranform dialog box
+		
+		![vTransform Dialog Box](./vtransform_dialog.png)
+
 	* Choose the DXF layer you just imported as the input layer
 	* For the points file, browse to Data > Georeferencing > `vector_transform.points`
 	* Under Transformed, click the browse button and choose 'Save to file'
