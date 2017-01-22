@@ -124,7 +124,7 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 	* Right click the layer and select ‘Zoom to Layer’
 	* The layer should now be positioned correctly relative to the basemap
 	* _Remove any geometry that was included only for georeferencing purposes_
-_9. If georeferencing a batch of layers:_
+9. _If georeferencing a batch of layers:_
 	* _QGIS has a batch processing feature, which will be outlined here if necessary_
 	* _Way to auto name layers?_
 	* _Might be able to batch process shape files without actually adding them as layers_
