@@ -30,7 +30,7 @@ To batch prepare a set of raster layers in a Photoshop file for import into Illu
 5. Ungroup layer groups (delete the group folder only, not the folder content)
 	* Not sure if this was the reason for earlier trouble but do it to be safe, because it worked!
 
-	_Note: Steps 6 and 7 are unnecessary. The current pointsfile, `vector_transform.points`, used in transformation seems to produce acceptable results, although there may be a way to create a photoshop layer that can be used for better groundtruthing of reference points._
+	_Note: Steps 6 and 7 are unnecessary. The current pointsfile, `vector_transform.points`, used in QGIS transformation steps below seems to produce acceptable results, although there may be a way to create a photoshop layer that can be used for better groundtruthing of reference points._
 
 6. Use Single-row Marquee Tool to select top row of pixels on the canvas
 7. Add a one-pixel stripe across the top of each layer, as follows:
