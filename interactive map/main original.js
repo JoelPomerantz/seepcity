@@ -70,7 +70,7 @@ $(document).ready(function() {
 
 		map.addSource("bay-and-marsh-fill", {
 			"type": "vector",
-			"url": 'mapbox://iwsstuart.50uz2cwq'
+			"url": 'mapbox://jpomerantz.3unida2g'
 		});
 		map.addLayer({
 			"id": "bay-and-marsh-fill",
@@ -85,7 +85,7 @@ $(document).ready(function() {
 
 		map.addSource("sf-city-boundary", {
 			"type": "vector",
-			"url": 'mapbox://iwsstuart.aq6vwvdl'
+			"url": 'mapbox://jpomerantz.ciwmv96qt006x2tqmy5rjj5r1-1zx77'
 		});
 		map.addLayer({
 			"id": "sf-city-boundary",
@@ -100,7 +100,7 @@ $(document).ready(function() {
 
 		map.addSource("sf-city-boundary-line", {
 			"type": "vector",
-			"url": 'mapbox://iwsstuart.ahaqmie8'
+			"url": 'jpomerantz.ciwmvhe0g00as2tnnt1umxkys-8fg9r'
 		});
 		map.addLayer({
 			"id": "sf-city-boundary-line",
