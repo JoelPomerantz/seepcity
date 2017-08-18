@@ -2,7 +2,7 @@
 
 The steps below describe how to take a raster map layer from Photoshop, convert that raster image to vector paths in Illustrator, turn those paths into accurately georeferenced vector geometry, and add the geometry to the Seep City Mapbox style.
 
-###Summary:
+### Summary:
 
 [1. Photoshop](#in-photoshop)  
 Export raster map layer(s) in a format that can be converted to vector paths in Illustrator.
@@ -17,7 +17,7 @@ Transform/georeference the geometry so that its size and position are accurate t
 Import the data and add it as a layer to the Seep City map style in Mapbox Studio.
   
 
-###1. In Photoshop:
+### 1. In Photoshop:
 
 _Note: These steps were developed using Photoshop CS4, and may not apply directly to other versions of Photoshop._
 
@@ -59,7 +59,7 @@ _Note: These steps can be automated using Actions._
 2. Image > Mode > Bitmap… 680 pixels per inch and 50% threshold
 3. Save as PNG
 
-###2. In Illustrator:
+### 2. In Illustrator:
 
 _The way that Joel is currently doing the conversion from raster to vector results in duplicate vector paths that need to be removed for successful export to DXF. Can we figure out how to convert to vector paths without duplicate paths?_
 	
@@ -95,7 +95,7 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 	* The default export settings should be fine
 	* _Actions can be used to batch export multiple files_
 
-###3. In QGIS:
+### 3. In QGIS:
 
 1. Open  `vector_transform.qgs`  from Data > Georeferencing
 	* _This QGIS project can have a few settings ready to go for georeferencing, otherwise just creating a new project is fine_
@@ -130,7 +130,7 @@ In order to import the files into QGIS, they need to be saved as DXF files (Auto
 	* _Might be able to batch process shape files without actually adding them as layers_
 	* _The whole QGIS process could also be automated with a python script down the road if it ever seems worth it_
 
-###4. In Mapbox Studio:
+### 4. In Mapbox Studio:
 
 1. Log into [Mapbox Studio](https://www.mapbox.com/studio/) using the **jpomerantz** account
 2. In the left menu bar, select Tilesets, then click 'New tileset'
